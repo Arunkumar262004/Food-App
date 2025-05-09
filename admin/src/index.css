@@ -28,3 +28,12 @@ hr{
     display: flex;
 
 }
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cursor{
+    cursor: pointer;
+}

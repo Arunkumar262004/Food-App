@@ -6,19 +6,24 @@ import Home from './pages/Home/home';
 import Cart from './pages/Cart/Cart';
 import Placeorder from './pages/Placeorder/Placeorder';
 import Login_popup from './component/Loginpopup/Login_popup';
+import Verify from './pages/Placeorder/Verify/Verify';
+import Myorder from './pages/Myorders/Myorder';
 
 const App = () => {
-  const [showLogin,setShowLogin] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
   return (
     <>
-  {showLogin?<Login_popup setShowLogin={setShowLogin}/>:<></>}
+      {showLogin ? <Login_popup setShowLogin={setShowLogin} /> : <></>}
       <div className='app'>
-        <Navbar setShowLogin={setShowLogin}/>
+        <Navbar setShowLogin={setShowLogin} />
 
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<Placeorder />} />
+          <Route path='/verify' element={<Verify />} />
+          <Route path='/myorders' element={<Myorder />} />
+
         </Routes>
 
       </div>

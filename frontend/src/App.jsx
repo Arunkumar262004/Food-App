@@ -8,6 +8,8 @@ import Placeorder from './pages/Placeorder/Placeorder';
 import Login_popup from './component/Loginpopup/Login_popup';
 import Verify from './pages/Placeorder/Verify/Verify';
 import Myorder from './pages/Myorders/Myorder';
+import UserSetting from './component/userSetting/userSetting.jsx';
+import Productview from './component/Productview/Productview.jsx';
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
@@ -23,6 +25,10 @@ const App = () => {
           <Route path='/order' element={<Placeorder />} />
           <Route path='/verify' element={<Verify />} />
           <Route path='/myorders' element={<Myorder />} />
+          <Route path='/user_settings' element={<UserSetting />} />
+          <Route path='/viewproduct/:id' element={<Productview />} />
+
+
 
         </Routes>
 

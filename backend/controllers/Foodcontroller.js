@@ -60,4 +60,17 @@ const remove_food = async (req, res) => {
     }
 }
 
-export { addfood, listfood, remove_food };
+
+
+const fetch_view_food = async (req,res) =>{
+    try {
+        const fetch_Id = await FoodModel.findById(req.params.id)
+        res.json({success:true,dataid : fetch_Id})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"error"})
+        
+    }
+}
+
+export { addfood, listfood, remove_food ,fetch_view_food};

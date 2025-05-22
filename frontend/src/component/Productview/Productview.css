@@ -1,0 +1,9 @@
+.product_img img{
+    border-radius: 10px;
+    height: 350px;
+    width: 4500px;
+}
+
+.div_shop_btn .div_shop_btn_sec {
+    margin-left: -140px;
+}

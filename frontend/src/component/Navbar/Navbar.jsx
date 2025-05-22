@@ -39,6 +39,8 @@ const Navbar = ({ setShowLogin }) => {
               <li onClick={()=>navigate('/myorders')}><img src={assets.bag_icon} alt="" />Orders</li>
               <hr />
               <li onClick={logout}><img src={assets.logout_icon} alt="" />Logout</li>
+              <hr />
+              <li onClick={()=>navigate("/user_settings")}><img src={assets.menu_1} alt="" />Settings</li>
             </ul>
           </div>}
 

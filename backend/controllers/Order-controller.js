@@ -25,7 +25,7 @@ const PlaceOrder = async (req, res) => {
                 product_data: {
                     name: item.name
                 },
-                unit_amount: item.price * 100 * 80
+                unit_amount: Math.round(item.price * 100),
             },
             quantity: item.quantity
         }))
@@ -36,7 +36,7 @@ const PlaceOrder = async (req, res) => {
                 product_data: {
                     name: "Delivry Charges"
                 },
-                unit_amount: 2 * 100 * 80
+                unit_amount: Math.round(2 * 100),
             },
             quantity: 1
         })
@@ -54,69 +54,69 @@ const PlaceOrder = async (req, res) => {
         res.json({ success: true, session_url: session.url })
     } catch (error) {
         console.log(error);
-        res.json({success: false, message:"Error"})
+        res.json({ success: false, message: "Error" })
 
     }
 }
 
-const verifyOrder = async (req,res) =>{
+const verifyOrder = async (req, res) => {
 
-    const {orderId,success} = req.body;
+    const { orderId, success } = req.body;
     try {
-         if(success === "true"){
-            await OrderModel.findByIdAndUpdate(orderId,{payment:true})
-            res.json({success:true,message:"Paid"})
-         }else{
+        if (success === "true") {
+            await OrderModel.findByIdAndUpdate(orderId, { payment: true })
+            res.json({ success: true, message: "Paid" })
+        } else {
             await OrderModel.findByIdAndDelete(orderId)
-            res.json({success:false,message:"Not Paid"})
-         }
+            res.json({ success: false, message: "Not Paid" })
+        }
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error Reoving this Id after Payment"})
-        
+        res.json({ success: false, message: "Error Reoving this Id after Payment" })
+
     }
 }
 
 
 // user order for fontend
-const usersOrder = async (req,res)=>{
+const usersOrder = async (req, res) => {
 
     try {
-        const orders = await OrderModel.find({userId:req.body.userId});
-        res.json({success:true,data:orders})
+        const orders = await OrderModel.find({ userId: req.body.userId });
+        res.json({ success: true, data: orders })
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error in order"})
-        
+        res.json({ success: false, message: "Error in order" })
+
     }
 }
 
 
 // list of user orders in admin pannel
 
-const listOrders = async (req,res) =>{
+const listOrders = async (req, res) => {
     try {
         const Orders = await OrderModel.find({});
-        res.json({success:true,data:Orders})
+        res.json({ success: true, data: Orders })
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error List order"})
-        
+        res.json({ success: false, message: "Error List order" })
+
     }
 }
 
 
 // API For Updating order Status
 
-const UpdateStatus = async (req,res)=>{
-try {
-    await OrderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status})
-    res.json({success:true,message:"Staus Updated"})
-} catch (error) {
-    console.log(error);
-    res.json({success:false,message:"Error inSaving the Status"})
-    
-}
+const UpdateStatus = async (req, res) => {
+    try {
+        await OrderModel.findByIdAndUpdate(req.body.orderId, { status: req.body.status })
+        res.json({ success: true, message: "Staus Updated" })
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Error inSaving the Status" })
+
+    }
 }
 
-export { PlaceOrder,verifyOrder,usersOrder,listOrders,UpdateStatus } 
+export { PlaceOrder, verifyOrder, usersOrder, listOrders, UpdateStatus } 

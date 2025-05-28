@@ -10,6 +10,7 @@ import Verify from './pages/Placeorder/Verify/Verify';
 import Myorder from './pages/Myorders/Myorder';
 import UserSetting from './component/userSetting/userSetting.jsx';
 import Productview from './component/Productview/Productview.jsx';
+import Place_single_order from './pages/place-single-order/place-single-order.jsx';
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
@@ -27,6 +28,8 @@ const App = () => {
           <Route path='/myorders' element={<Myorder />} />
           <Route path='/user_settings' element={<UserSetting />} />
           <Route path='/viewproduct/:id' element={<Productview />} />
+          <Route path='/place_single_order/:id' element={<Place_single_order />} />
+
 
 
 

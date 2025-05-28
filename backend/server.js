@@ -6,6 +6,7 @@ import user_router from "./routes/User-route.js";
 import  "dotenv/config"
 import cart_router from "./routes/cart-Route.js";
 import orderRouter from "./routes/Order-route.js";
+import place_buy_order from "./routes/single_order_router.js";
 // appp config
 const app = express();
 const port = 4000
@@ -28,7 +29,7 @@ app.use("/api/order",orderRouter)
 app.get("/",(req,res)=>{
     res.send("API Working")
 })
-
+app.use("/api/placesingle",place_buy_order)
 
 
 // mongodb://localhost:27017

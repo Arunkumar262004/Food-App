@@ -16,6 +16,10 @@ const Fooditem = ({ id, name, price, description, image }) => {
     <div className='food-item'>
       <Link to={`/viewproduct/${id}`} className="food-item-image-container">
         <img className='food-item-image' src={url + "/images/" + image} alt={name} />
+
+      </Link>
+
+      <div className="food-iteminfo">
         {!cartItems[id] ? (
           <img
             className='add'
@@ -30,12 +34,11 @@ const Fooditem = ({ id, name, price, description, image }) => {
             <img onClick={() => addToCart(id)} src={assets.add_icon_green} alt="Add More" />
           </div>
         )}
-      </Link>
-      <div className="food-iteminfo">
         <div className="food-item-name-rating">
           <p>{name}</p>
-          <img src={assets.rating_starts} alt="Rating" />
+
         </div>
+        <img src={assets.rating_starts} alt="Rating" />
         <p className='food-item-desc'>{description}</p>
         <p className="food-item-price">₹{price}</p>
       </div>

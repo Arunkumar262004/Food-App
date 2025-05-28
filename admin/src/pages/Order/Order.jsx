@@ -45,7 +45,7 @@ const Order = ({ url }) => {
                     return item.name + " x "
                       + item.quantity
                   } else {
-                    return item.name + " x" + items.quantity + ","
+                    return item.name + " x" + item.quantity + ","
                   }
                 })}
               </p>

@@ -4,7 +4,7 @@ import { StoreContext } from '../../context/Storecontext'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const Placeorder = () => {
-  const { get_total_Cart_amount, token, cartItems, url,food_list } = useContext(StoreContext)
+  const { get_total_Cart_amount, token, cartItems, url, food_list } = useContext(StoreContext)
 
 
   const [data, setData] = useState({
@@ -37,29 +37,29 @@ const Placeorder = () => {
       }
     })
     let orderData = {
-      address:data,
+      address: data,
       items: orderItems,
-      amount:get_total_Cart_amount() +2,
+      amount: get_total_Cart_amount() + 2,
     }
-    let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
+    let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } })
 
-    if(response.data.success){
-      const {session_url} = response.data;
+    if (response.data.success) {
+      const { session_url } = response.data;
       window.location.replace(session_url)
-    }else{
+    } else {
       alert("Error in placing order")
     }
   }
 
   const navigate = useNavigate();
 
-  useEffect(()=>{
-if(!token){
-navigate('/cart')
-}else if (get_total_Cart_amount() === 0 ){
-  navigate('/cart')
-}
-  },[token])
+  useEffect(() => {
+    if (!token) {
+      navigate('/cart')
+    } else if (get_total_Cart_amount() === 0) {
+      navigate('/cart')
+    }
+  }, [token])
   return (
     <form onSubmit={placeOrder} className='place-order'>
       <div className="place-order-left">

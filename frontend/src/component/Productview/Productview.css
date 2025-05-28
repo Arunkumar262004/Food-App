@@ -7,3 +7,32 @@
 .div_shop_btn .div_shop_btn_sec {
     margin-left: -140px;
 }
+
+
+.cart-action-wrapper {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.add img{
+  width: 10px;
+  height: 90px;
+  cursor: pointer;
+}
+
+.food-item-counter {
+  display: flex;
+  align-items: center;
+}
+
+.food-item-counter img {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+}
+
+.food-item-counter p {
+  margin: 0 10px;
+  font-size: 18px;
+}

@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { Link, useParams } from 'react-router-dom';
 
 const Place_single_order = () => {
-    const { token ,url} = useContext(StoreContext)
+    const { token, url } = useContext(StoreContext)
 
-      const { id } = useParams();
+    const { id } = useParams();
 
 
     const [food, setFoodid] = useState(null)
@@ -34,20 +34,36 @@ const Place_single_order = () => {
 
     const placeOrder = async (event) => {
         event.preventDefault();
-     
+
         let orderData = {
             address: data,
-            items: food.name,
-            amount: food.price,
-        }
-        let response = await axios.post(url + "/api/placesingle/get_single_order", orderData, { headers: { token } })
+            items: [{
+                name: food.name,
+                price: food.price,
+                quantity: 1
+            }],
+            amount: food.price + 2
+        };
+       const response = await axios.post(
+  url + "/api/placesingle/get_single_order",
+  orderData,
+  {
+    headers: {
+      token: token // 👈 This must not be undefined
+    }
+  }
+);
+
 
         if (response.data.success) {
             const { session_url } = response.data;
-            window.location.replace(session_url)
+            window.location.replace(session_url); // ✅ This redirects to Stripe
         } else {
-            alert("Error in placing order")
+            alert("Error in placing order");
         }
+
+
+
     }
 
     const navigate = useNavigate();

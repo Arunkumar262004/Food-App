@@ -1,3 +1,5 @@
+import React from "react";
+
 import { createContext, useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -28,18 +30,18 @@ const StoreContextProvider = (props) => {
 
 
     if (token) {
-      await axios.post(url+"/api/cart/add",{ itemId },{headers:{token}})
+      await axios.post(url + "/api/cart/add", { itemId }, { headers: { token } })
     }
   }
 
 
   const removeItemFromCart = async (itemId) => {
-    setCartItems((prev)=>({
-      ...prev,[itemId]:prev[itemId] -1
+    setCartItems((prev) => ({
+      ...prev, [itemId]: prev[itemId] - 1
     }));
 
-    if(token){
-      axios.post(url+"/api/cart/remove",{itemId},{headers:{token}})
+    if (token) {
+      axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } })
     }
   }
 
@@ -62,10 +64,10 @@ const StoreContextProvider = (props) => {
   }
 
 
-const localCartData = async (token) =>{
-  const response = await axios.post(url+"/api/cart/get",{},{headers:{token}})
-setCartItems(response.data.cart_data || {});
-}
+  const localCartData = async (token) => {
+    const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } })
+    setCartItems(response.data.cart_data || {});
+  }
 
   useEffect(() => {
 

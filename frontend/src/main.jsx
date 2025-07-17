@@ -1,3 +1,6 @@
+import React from 'react'; // 👈 Required for JSX to work in some setups
+
+
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';

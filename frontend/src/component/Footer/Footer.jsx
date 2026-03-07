@@ -6,8 +6,8 @@ const Footer = () => {
     <div className='footer' id='footer'>
       <div className="footer-content">
         <div className="footer-content-left">
-          <img src={assets.logo} alt="" />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, architecto voluptatibus, facere officia labore omnis magnam natus officiis iure, molestias tempore laborum nulla iste at? Deserunt, eaque fuga. Aspernatur, quas!</p>
+          <img src={assets.logo} alt="" width={105} height={65} />
+          <p>“At our restaurant, food is more than just a meal — it’s an experience. We believe in serving fresh ingredients, authentic flavors, and warm hospitality to every guest who walks through our doors. Every dish is prepared with care, passion, and dedication to quality.</p>
           <div className="footer-social-icons">
             <img src={assets.facebook_icon} alt="" />
             <img src={assets.twitter_icon} alt="" />
@@ -29,13 +29,13 @@ const Footer = () => {
             <h2>GET IN TOUCH</h2>
            <ul>
              <li>+91 9578777764</li>
-            <li>Contact@tomato.com</li>
+            <li>arsha.kitchen@gmail.com</li>
            </ul>
 
         </div>
       </div>
       <hr/>
-      <p className="footer-copyright">CopyRight 2024 @ Tomato.com - All Right Reserved.</p>
+      <p className="footer-copyright">CopyRight 2026 @ Arsha - All Right Reserved.</p>
     </div>
   )
 }

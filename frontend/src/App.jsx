@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './component/Navbar/Navbar';
-import Footer from './component/Footer/Footer'; // ✅ Import Footer
+import Footer from './component/Footer/Footer';
 import Home from './pages/Home/home';
 import Cart from './pages/Cart/Cart';
 import Placeorder from './pages/Placeorder/Placeorder';
@@ -17,8 +17,8 @@ const App = () => {
   return (
     <>
       {showLogin ? <Login_popup setShowLogin={setShowLogin} /> : <></>}
+      <Navbar setShowLogin={setShowLogin} />
       <div className='app'>
-        <Navbar setShowLogin={setShowLogin} />
 
         <Routes>
           <Route path='/' element={<Home />} />

@@ -29,7 +29,7 @@ app.use("/api/order",orderRouter)
 app.get("/",(req,res)=>{
     res.send("API Working")
 })
-app.use("/api/placesingle",place_buy_order)
+app.use("/api/placesingle/",place_buy_order)
 
 
 // mongodb://localhost:27017

@@ -10,8 +10,6 @@ const Fooditem = ({ id, name, price, description, image }) => {
 
   const navigate = useNavigate();
 
-
-
   return (
     <div className='food-item'>
       <Link to={`/viewproduct/${id}`} className="food-item-image-container">

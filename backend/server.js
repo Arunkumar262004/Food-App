@@ -7,6 +7,8 @@ import  "dotenv/config"
 import cart_router from "./routes/cart-Route.js";
 import orderRouter from "./routes/Order-route.js";
 import place_buy_order from "./routes/single_order_router.js";
+import adminRouter from "./routes/Adminrouter.js"; // ← ADD THIS
+
 // appp config
 const app = express();
 const port = 4000
@@ -23,7 +25,7 @@ connectdb();
 app.use("/api/food",foodRouter);
 app.use("/images",express.static('uploads'));
 app.use("/api/user",user_router); 
-
+app.use("/api/admin", adminRouter); 
 app.use("/api/cart",cart_router);
 app.use("/api/order",orderRouter)
 app.get("/",(req,res)=>{

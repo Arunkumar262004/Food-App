@@ -19,7 +19,9 @@ const Myorder = () => {
 
         }
     }, [token])
-
+  useEffect(() => {
+    document.title = "My - Orders";
+  }, []);
     return (
         <div className='my-orders'>
             <h2>My Orders</h2>

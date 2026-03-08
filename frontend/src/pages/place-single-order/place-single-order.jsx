@@ -44,15 +44,15 @@ const Place_single_order = () => {
             }],
             amount: food.price + 2
         };
-       const response = await axios.post(
-  url + "/api/placesingle/get_single_order",
-  orderData,
-  {
-    headers: {
-      token: token // 👈 This must not be undefined
-    }
-  }
-);
+        const response = await axios.post(
+            url + "/api/placesingle/get_single_order",
+            orderData,
+            {
+                headers: {
+                    token: token // 👈 This must not be undefined
+                }
+            }
+        );
 
 
         if (response.data.success) {
@@ -69,6 +69,8 @@ const Place_single_order = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        document.title = "Checkout Page ";
+
         const fetch_food_id = async () => {
             try {
                 const response = await axios.get(`${url}/api/food/getid/${id}`);

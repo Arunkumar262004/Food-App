@@ -40,7 +40,9 @@ const List = ({ url }) => {
   };
 
   useEffect(() => { fetchlist(); }, []);
-
+  useEffect(() => {
+    document.title = "Food List ";
+  }, []);
   return (
     <>
       <style>{`

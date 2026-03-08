@@ -284,7 +284,9 @@ const Order = ({ url }) => {
   };
 
   useEffect(() => { fetchAllorder(); }, []);
-
+  useEffect(() => {
+    document.title = "Track - Order";
+  }, []);
   return (
     <>
       <style>{styles}</style>
@@ -358,7 +360,7 @@ const Order = ({ url }) => {
                     {/* Amount */}
                     <td>
                       <span className="ord-num-sub">Total</span>
-                      <span className="ord-num">${order.amount}</span>
+                      <span className="ord-num">₹{order.amount}</span>
                     </td>
 
                     {/* Status */}

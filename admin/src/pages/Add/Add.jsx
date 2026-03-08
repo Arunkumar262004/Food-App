@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@300;400;500;600;700&display=swap');
@@ -312,7 +313,9 @@ const Add = ({ url }) => {
     } catch { toast.error("Something went wrong."); }
     finally { setLoading(false); }
   };
-
+  useEffect(() => {
+    document.title = "Add - Product";
+  }, []);
   return (
     <>
       <style>{styles}</style>

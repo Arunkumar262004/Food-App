@@ -9,7 +9,7 @@ const Productview = () => {
   const { id } = useParams();
   const [foodId, setFoodid] = useState(null);
   const [imgLoaded, setImgLoaded] = useState(false);
-  const url = "http://localhost:4000";
+  const url = "http://localhost:5000";
   const navigate = useNavigate();
 
   useEffect(() => {

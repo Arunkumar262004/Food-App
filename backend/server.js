@@ -11,7 +11,7 @@ import adminRouter from "./routes/Adminrouter.js"; // ← ADD THIS
 
 // appp config
 const app = express();
-const port = 4000
+const port = 5000
 
 // middlewears
 app.use(express.json())

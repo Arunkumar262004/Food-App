@@ -37,7 +37,6 @@ app.use("/api/placesingle/",place_buy_order)
 // mongodb://localhost:27017
 
 
-app.listen(port,()=>{
-    console.log(`Server Started on http://localhost:${port}`);
-    
+app.listen(port, "0.0.0.0", () => {
+    console.log(`Server Started on port ${port}`);
 })
